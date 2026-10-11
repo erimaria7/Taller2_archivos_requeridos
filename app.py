@@ -101,7 +101,7 @@ def plot_series(data, initial_date, proy):
 
     return fig
 
-
+#Se adiciona este comentario para probar el punto 3 del laboratorio 
 
 def description_card():
     """
