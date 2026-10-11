@@ -1,3 +1,4 @@
+#Librerias importadas
 import dash
 from dash import dcc
 from dash import html
@@ -21,6 +22,15 @@ app.config.suppress_callback_exceptions = True
 
 # Load data from csv
 def load_data():
+    """
+    Carga el archivo datos_energia.csv y lo prepara para el tablero.
+    Convierte la columna 'time' a formato datetime y la usa como índice.
+    Returns:
+        pd.DataFrame: DataFrame indexado por fecha y hora, con las columnas
+        AT_load_actual_entsoe_transparency (demanda real), forecast
+        (pronóstico), Upper bound y Lower bound (límites del pronóstico).
+    """
+
     df = pd.read_csv("datos_energia.csv")
     df["time"] = pd.to_datetime(df["time"])
     df = df.set_index("time")
